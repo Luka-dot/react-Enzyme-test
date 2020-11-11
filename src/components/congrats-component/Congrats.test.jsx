@@ -19,8 +19,13 @@ test('renders Congrats without errors', () => {
 });
 
 test('renders no text when "success" prop is false', () => {
-
+    const wrapper = setup({ success: false});
+    const component = findByTestAttr(wrapper, 'component-congrats');
+    expect(component.text()).toBe('');
 });
 test('renders Non epty congrats message', () => {
+    const wrapper = setup({ success: true });
+    const message = findByTestAttr(wrapper, 'congrats-message');
+    expect(message.text().lenght).not.toBe(0);
 
 });
