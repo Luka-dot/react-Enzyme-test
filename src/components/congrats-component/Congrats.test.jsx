@@ -24,11 +24,13 @@ test('renders no text when "success" prop is false', () => {
     const component = findByTestAttr(wrapper, 'component-congrats');
     expect(component.text()).toBe('');
 });
+
 test('renders Non epty congrats message', () => {
     const wrapper = setup({ success: true });
     const message = findByTestAttr(wrapper, 'congrats-message');
     expect(message.text().lenght).not.toBe(0);
 });
+
 test('does not have warning with expected props', () => {
     const expectedProp = { success: false };
     const propError = CheckPropTypes(Congrats.propTypes, expectedProp, 'prop', Congrats.name);
